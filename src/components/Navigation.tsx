@@ -1,11 +1,12 @@
 import { MedusaClient } from "@/utils/medusa";
-
-export const Navigation = async () => {
+import { memo } from "react";
+{/* @ts-expect-error Async Server Component */}
+export const Navigation = memo(async function Navigtion() {
   const data = await MedusaClient.productCategories.list({
     parent_category_id: "null",
   });
   return (
-    <div className="flex items-center gap-4 mr-auto">
+    <div className="flex items-center gap-4 mr-auto lg:flex-row flex-col">
       {data.product_categories.map((c) => (
         <div
           key={c.id}
@@ -16,4 +17,4 @@ export const Navigation = async () => {
       ))}
     </div>
   );
-};
+});

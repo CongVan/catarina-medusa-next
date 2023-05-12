@@ -25,6 +25,7 @@ module.exports = {
     colors: {
       white: "#ffffff",
       body: "#171717",
+      black: '#000000',
       transparent: "transparent",
       brand: {
         50: "#fdf3f3",
