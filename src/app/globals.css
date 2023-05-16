@@ -4,6 +4,27 @@
 
 @layer base {
   html {
-    @apply font-body font-normal;
+    @apply bg-neutral-50 bg-opacity-20 font-body font-normal;
+  }
+}
+
+@layer components {
+  .h1 {
+    @apply mb-2 mt-0 text-5xl font-medium leading-tight;
+  }
+  .h2 {
+    @apply mb-2 mt-0 text-4xl font-medium leading-tight;
+  }
+  .h3 {
+    @apply mb-2 mt-0 text-3xl font-medium leading-tight;
+  }
+  .h4 {
+    @apply mb-2 mt-0 text-2xl font-medium leading-tight;
+  }
+  .h5 {
+    @apply mb-2 mt-0 text-xl font-medium leading-tight;
+  }
+  .h6 {
+    @apply mb-2 mt-0 text-base font-medium leading-tight;
   }
 }

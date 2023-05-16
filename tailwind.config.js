@@ -21,6 +21,7 @@ module.exports = {
     fontFamily: {
       body: ["var(--font-body)", ...defaultTheme.fontFamily.sans],
       sub: ["var(--font-sub)", ...defaultTheme.fontFamily.sans],
+      money: ["var(--font-money)", ...defaultTheme.fontFamily.sans],
     },
     colors: {
       white: "#ffffff",

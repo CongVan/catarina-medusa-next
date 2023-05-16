@@ -1,7 +1,11 @@
-'use client'
+"use client";
 
 import { QueryClient } from "@tanstack/react-query";
-import { MedusaProvider } from "medusa-react";
+import {
+  CartProvider,
+  MedusaProvider,
+  SessionCartProvider,
+} from "medusa-react";
 import { ReactNode } from "react";
 const queryClient = new QueryClient();
 
@@ -11,7 +15,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       queryClientProviderProps={{ client: queryClient }}
       baseUrl={process.env.NEXT_PUBLIC_MEDUSA_BASE_URL + ""}
     >
-      {children}
+      <SessionCartProvider>
+        <CartProvider>{children}</CartProvider>
+      </SessionCartProvider>
     </MedusaProvider>
   );
 };

@@ -4,10 +4,13 @@ import { ButtonIcon } from "./ButtonIcon";
 import { Navigation } from "./Navigation";
 import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { ProductCategory } from "@medusajs/medusa";
 
-export const SidebarMenu: React.FC = () => {
+export const SidebarMenu: React.FC<{ categories: ProductCategory[] }> = ({
+  categories,
+}) => {
   const [open, setOpen] = useState(false);
-  console.log(open);
+
   return (
     <div>
       <ButtonIcon
@@ -19,12 +22,12 @@ export const SidebarMenu: React.FC = () => {
       </ButtonIcon>
       <div
         className={twMerge(
-          "bg-white fixed top-0 left-0 w-[286px] z-50 block",
-          "transition-all duration-300 bottom-0 ease-in-out pt-10",
-          open ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+          "bg-white fixed top-0 left-0 w-[286px] z-50 block opacity-0",
+          "transition-all duration-300 bottom-0 ease-in-out pt-10 shadow",
+          open ? "translate-x-0 opacity-100" : "-translate-x-[999px] opacity-0"
         )}
       >
-        <Navigation />
+        <Navigation categories={categories} />
       </div>
       {open && (
         <div

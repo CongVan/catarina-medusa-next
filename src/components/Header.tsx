@@ -1,21 +1,26 @@
 import {
   HeartIcon,
   MagnifyingGlassIcon,
-  ShoppingCartIcon
+  ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
 import { Button } from "./Button";
 import { ButtonIcon } from "./ButtonIcon";
 import { Navigation } from "./Navigation";
 import { SidebarMenu } from "./SidebarMenu";
-export const Header = () => {
+import { MedusaClient } from "@/utils/medusa";
+export const Header = async () => {
+  const data = await MedusaClient.productCategories.list({
+    parent_category_id: "null",
+  });
+
   return (
     <div className="bg-white relative">
       <div className=" flex items-center py-2 lg:py-5 container">
-        <SidebarMenu />
+        <SidebarMenu categories={data.product_categories} />
         <div className="hidden lg:block">
-          <Navigation />
+          <Navigation categories={data.product_categories} />
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 font-body font-extrabold text-2xl lg:text-4xl bg-clip-text bg-gradient-to-tr from-brand-600 via-brand-400 to-brand-600 text-transparent">
+        <div className="absolute left-1/2 -translate-x-1/2 font-money font-extrabold text-2xl lg:text-4xl bg-clip-text bg-gradient-to-tr from-brand-600 via-brand-400 to-brand-600 text-transparent">
           Catarina
         </div>
         <div className=" items-center space-x-1 ml-auto  hidden lg:flex">
